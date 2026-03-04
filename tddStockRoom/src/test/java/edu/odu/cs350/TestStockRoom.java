@@ -20,6 +20,9 @@ import static org.hamcrest.Matchers.*;
  *        items in stock.
  */
 public class TestStockRoom {
-
+    @Test
+    public void DummyTest() {
+        assertEquals(2, 1+1);
+    }
     
 }       
