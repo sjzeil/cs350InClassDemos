@@ -1,0 +1,30 @@
+plugins {
+   id 'java'
+   id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.13.0'
+    testImplementation 'org.hamcrest:hamcrest:3.0'
+}
+
+test {
+    ignoreFailures = true
+    useJUnitPlatform()
+}
+
+application { //Allows  ./gradlew run --args=path-to-test-data
+    mainClass = 'edu.odu.cs.cs350.GenerateReport'
+}
+
+task copyDocs (type: Copy, dependsOn: javadoc) {
+    from 'build/docs'
+    into 'build/reports'
+}
+
+check.dependsOn copyDocs

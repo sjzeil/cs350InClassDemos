@@ -1,0 +1,2 @@
+rootProject.name = 'cs350InClassDemos'
+include 'tddStockRoom'
